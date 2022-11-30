@@ -1,8 +1,3 @@
-Build Hugo With GitHub Action 
-GitHub executes your software development workflows. Every time you push your code on the GitHub repository, GitHub Actions will build the site automatically.
-
-Create a file in .github/workflows/gh-pages.yml containing the following content (based on actions-hugo):
-
 name: github pages
 
 on:
@@ -13,7 +8,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
         with:
@@ -24,7 +19,7 @@ jobs:
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
-          extended: true
+          # extended: true
 
       - name: Build
         run: hugo --minify
